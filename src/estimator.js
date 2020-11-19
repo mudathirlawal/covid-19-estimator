@@ -13,6 +13,7 @@ let data = {
     totalHospitalBeds: 1380614
 };
 
+// Applying destructuring:
 let { 
     region, 
     periodType, 
@@ -22,6 +23,7 @@ let {
     totalHospitalBeds 
 } = data;
 
+// Using the IIFE Pattern to return closures.
 let covid19ImpactEstimator = (
     ( data ) => {
         const NO_OF_DAYS_IN_WEEK = 7;
@@ -60,11 +62,12 @@ let covid19ImpactEstimator = (
     
         let estimation = {
             data: data, 
-            impact: impact, 
-            severeImpact: severeImpact
+            impact: impact(), 
+            severeImpact: severeImpact()
         };  
         return estimation;    
     }
 )();
 
+console.log( covid19ImpactEstimator );
 export default covid19ImpactEstimator;
